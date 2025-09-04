@@ -36,9 +36,9 @@ void runQuickSort(int arr[], int n) {
     quickSort(arr, 0, n - 1);
 }
 
-void runHeapSort(int arr[], int n) {
-    heapSort(arr, n);
-}
+// void runHeapSort(int arr[], int n) {
+//     heapSort(arr, n);
+// }
 
 bool testSortingAlgorithm(const SortingAlgorithm& algo, const TestCase& test) {
     int n = test.input.size();
@@ -74,7 +74,7 @@ void runAllTests() {
         {"Insertion Sort", runInsertionSort},
         {"Merge Sort", runMergeSort},
         {"Quick Sort", runQuickSort},
-        {"Heap Sort", runHeapSort}
+        // {"Heap Sort", runHeapSort}
     };
     
     cout << "\n****************************************" << endl;
@@ -119,7 +119,7 @@ void runSpecificTest(int algoChoice, int testChoice) {
         {"Insertion Sort", runInsertionSort},
         {"Merge Sort", runMergeSort},
         {"Quick Sort", runQuickSort},
-        {"Heap Sort", runHeapSort}
+        // {"Heap Sort", runHeapSort}
     };
     
     if (algoChoice < 1 || algoChoice > algorithms.size()) {

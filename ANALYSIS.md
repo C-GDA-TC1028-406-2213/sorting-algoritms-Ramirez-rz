@@ -1,14 +1,14 @@
 # Sorting Algorithms Analysis
 
-Student Name: [Your Name]
-Date: [Date]
+Student Name: [Andrés Ramírez Ruiz]
+Date: [09/03/2025]
 
 ## Time Complexity Analysis
 
 ### Bubble Sort
-- **Best Case:** O(?) - [Explain when this occurs]
-- **Average Case:** O(?) - [Explain]
-- **Worst Case:** O(?) - [Explain when this occurs]
+- **Best Case:** O(n) - [Explain when this occurs]
+- **Average Case:** O(n^2) - [Explain]
+- **Worst Case:** O(n^2) - [Explain when this occurs]
 
 ### Selection Sort
 - **Best Case:** O(?) - [Explain when this occurs]

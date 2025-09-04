@@ -112,10 +112,10 @@ void performSort(int choice, int arr[], int n) {
             quickSort(arr, 0, n - 1);
             algorithmName = "Quick Sort";
             break;
-        case 6:
-            heapSort(arr, n);
-            algorithmName = "Heap Sort";
-            break;
+        // case 6:
+        //     heapSort(arr, n);
+        //     algorithmName = "Heap Sort";
+        //     break;
         default:
             cout << "Invalid choice!" << endl;
             return;
@@ -194,11 +194,11 @@ void compareAllAlgorithms() {
     timer.stop();
     results.push_back({"Quick Sort", timer.getElapsedMilliseconds(), isSorted(temp.data(), size)});
     
-    copy(original.begin(), original.end(), temp.begin());
-    timer.start();
-    heapSort(temp.data(), size);
-    timer.stop();
-    results.push_back({"Heap Sort", timer.getElapsedMilliseconds(), isSorted(temp.data(), size)});
+    // copy(original.begin(), original.end(), temp.begin());
+    // timer.start();
+    // heapSort(temp.data(), size);
+    // timer.stop();
+    // results.push_back({"Heap Sort", timer.getElapsedMilliseconds(), isSorted(temp.data(), size)});
     
     cout << "\n" << left << setw(20) << "Algorithm" 
          << setw(15) << "Time (ms)" 
@@ -280,7 +280,7 @@ int main() {
                 cout << "3. Insertion Sort" << endl;
                 cout << "4. Merge Sort" << endl;
                 cout << "5. Quick Sort" << endl;
-                cout << "6. Heap Sort" << endl;
+                // cout << "6. Heap Sort" << endl;
                 cout << "Enter choice: ";
                 int sortChoice;
                 cin >> sortChoice;

@@ -18,7 +18,7 @@ namespace SortingAlgorithms {
     
     void quickSort(int arr[], int low, int high);
     
-    void heapSort(int arr[], int n);
+    //void heapSort(int arr[], int n);
     
     void printArray(int arr[], int n);
     

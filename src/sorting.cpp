@@ -5,44 +5,144 @@
 #include <sstream>
 #include <iomanip>
 
+using namespace std;
 namespace SortingAlgorithms {
 
-void bubbleSort(int arr[], int n) {
-    
+//Funcion swap
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
-void selectionSort(int arr[], int n) {
-    
+void bubbleSort(int arr[], int size) {
+    bool swapped;
+
+    for(int i=0;i<size-1;i++){ 
+        swapped=false;
+        for(int j=0;j<size-i-1;j++){ 
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+      
+        if (!swapped){
+            break;
+        }
+    }     
 }
 
-void insertionSort(int arr[], int n) {
-    
+void selectionSort(int arr[], int size) {
+    for(int i=0;i<size;++i){
+        int min=i; //El valor minimo del array
+
+        for(int j=i+1;j<size;++j){
+            if(arr[j]<arr[min]){ //Si el valor del valor en j es menor al valor minimo
+                min=j; //El valor de j se convierte en el minimo
+            }
+        }
+        swap(arr[i],arr[min]);
+    }         
 }
 
-void merge(int arr[], int left, int mid, int right) {
-    
+void insertionSort(int arr[], int size) {
+    for(int i=1;i<size;++i){
+        int current=arr[i]; //Valor en el que estoy segun posicion i
+        int j=i-1; //Posicion anterior a current
+
+        while(j>=0&&arr[j]>current){
+            arr[j+1]=arr[j]; //Agregando el valor anterior en current manteniendo la misma posición.
+            j--;
+        }
+        arr[j+1]=current;//Agrega el valor de current en la posicion ordenada. 
+    }    
 }
 
-void mergeSort(int arr[], int left, int right) {
-    
+void merge(int arr[], int l, int m, int r){
+    int pl = m - l + 1; // Left part
+    int pr = r - m;     // Right part
+
+    // Arreglos temporales (vectores)
+    vector<int> L(pl), R(pr);
+
+    // Copiar los datos en los arreglos nuevos
+    for (int i = 0; i < pl; i++)
+        L[i] = arr[l + i];
+    for (int j = 0; j < pr; j++)
+        R[j] = arr[m + 1 + j];
+
+    // Contadores
+    int i = 0, j = 0, k = l;
+
+    // Mezclar L y R en arr
+    while (i < pl && j < pr) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copiar elementos restantes de L
+    while (i < pl) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copiar elementos restantes de R
+    while (j < pr) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(int arr[], int l, int r) {
+    if (l < r) {
+        int m = l + (r - l) / 2; // evita overflow
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
 }
 
 int partition(int arr[], int low, int high) {
-    
-    return 0;
+    int pivot = arr[high]; // Pivote
+    int i = low - 1;       // índice del elemento más pequeño
+
+    // Mover a la izquierda los valores pequeños
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]); // usa std::swap
+        }
+    }
+
+    // Colocar el pivote en su posición correcta
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
 }
 
 void quickSort(int arr[], int low, int high) {
-    
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        // Ordenar los elementos antes y después de la partición
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
 }
 
-void heapify(int arr[], int n, int i) {
+// void heapify(int arr[], int n, int i) {
     
-}
+// }
 
-void heapSort(int arr[], int n) {
-    
-}
+// void heapSort(int arr[], int n) {
 
 void printArray(int arr[], int n) {
     if (n == 0) {
